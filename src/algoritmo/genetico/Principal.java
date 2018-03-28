@@ -9,7 +9,7 @@ import curso.Dia;
 import curso.DiaImpossivel;
 import curso.Disciplina;
 import curso.Horario;
-import curso.Periodo;
+import curso.Ano;
 import curso.Professor;
 
 public class Principal {
@@ -17,11 +17,11 @@ public class Principal {
 	int quantDeCromossomos;
 	Horario[] hora;
 	Professor[] professor;
-	Periodo[] periodo;
+	Ano[] periodo;
 	Dia[] dia;
 	Horario[] horaPreferencial = new Horario[0];
 
-	public Principal(int quantDeCromossomos, Horario[] hora, Professor[] professor, Periodo[] periodo, Dia[] dia,
+	public Principal(int quantDeCromossomos, Horario[] hora, Professor[] professor, Ano[] periodo, Dia[] dia,
 			Horario[] horaPreferencial) {
 		this.quantDeCromossomos = quantDeCromossomos;
 		this.hora = hora;
@@ -130,7 +130,7 @@ public class Principal {
 			for (int j = i; j < ind.getGenes().length - 1; j++) {
 				gene2 = ind.getGenes()[j + 1];
 				if (gene.getHora().equals(gene2.getHora()) && gene.getDia().equals(gene2.getDia())
-						&& gene.getPeriodo().getNumeroDoPerido()!=gene2.getPeriodo().getNumeroDoPerido()
+						&& !gene.getPeriodo().getNome().equals(gene2.getPeriodo().getNome())
 						&& gene.getProfessor().getNome().equals(gene2.getProfessor().getNome()) 
 						&& !gene.getProfessor().getNome().equals("")) {
 					penalidades += 500;
@@ -191,7 +191,7 @@ public class Principal {
 		Horario[] hora = { h1, h2};
 
 		Disciplina disciplimas[][] = { { d }, { d2, d3 } };
-		Periodo[] periodo = { new Periodo(1, disciplimas[0]), new Periodo(2, disciplimas[1]) };
+		Ano[] periodo = { new Ano("1", disciplimas[0]), new Ano("2", disciplimas[1]) };
 
 		Professor[] professor = { new Professor("João", disciplimas[0]), new Professor("ZZZZ", disciplimas[1]) };
 

@@ -1,11 +1,12 @@
 package curso;
 
-public class Periodo {
+public class Ano {
 	private Disciplina[] disciplinas;
-	private int numeroDoPerido;
-	public Periodo(int numeroDoPerido,Disciplina[] disciplinas) {
+	private String nome;
+	private Horario horas[];
+	public Ano(String nome,Disciplina[] disciplinas) {
 		super();
-		this.numeroDoPerido = numeroDoPerido;
+		this.nome = nome;
 		this.disciplinas = disciplinas;
 	}
 
@@ -17,12 +18,12 @@ public class Periodo {
 		this.disciplinas = disciplinas;
 	}
 	
-	public int getNumeroDoPerido() {
-		return numeroDoPerido;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNumeroDoPerido(int numeroDoPerido) {
-		this.numeroDoPerido = numeroDoPerido;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public int numeroDeAulasDeUmPeriodo(){
