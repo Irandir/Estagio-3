@@ -6,11 +6,11 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 import curso.Dia;
-import curso.DiaImpossivel;
-import curso.Disciplina;
 import curso.Horario;
-import curso.Ano;
-import curso.Professor;
+import model.Ano;
+import model.DiaImpossivel;
+import model.Disciplina;
+import model.Professor;
 
 public class Principal {
 	private static Random rand = new Random();

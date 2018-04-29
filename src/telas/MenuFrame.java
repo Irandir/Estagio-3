@@ -6,9 +6,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import nao_usado.GerarHorarioFrame2;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.FlowLayout;
@@ -25,30 +22,13 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import net.miginfocom.swing.MigLayout;
+import testes.GerarHorarioFrame2;
 
 public class MenuFrame extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuFrame frame = new MenuFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
 	public MenuFrame() {
 		setResizable(false);
 		setTitle("Grade De Hor\u00E1rios");

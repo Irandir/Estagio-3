@@ -1,10 +1,10 @@
 package algoritmo.genetico;
 
 import curso.Dia;
-import curso.Disciplina;
 import curso.Horario;
-import curso.Ano;
-import curso.Professor;
+import model.Ano;
+import model.Disciplina;
+import model.Professor;
 
 public class Gene {
 	private Horario hora;
