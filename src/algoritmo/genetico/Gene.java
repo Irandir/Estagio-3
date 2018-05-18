@@ -1,44 +1,51 @@
 package algoritmo.genetico;
 
-import curso.Dia;
-import curso.Horario;
-import model.Ano;
+
+import model.Dia;
 import model.Disciplina;
-import model.Professor;
+import model.Hora;
 
 public class Gene {
-	private Horario hora;
-	private Ano periodo;
-	private Professor professor;
+	private Hora hora;
+	private Ano2 ano;
+	private Professor2 professor;
 	private Disciplina disciplina;
 	private Dia dia;
 
-	public Gene(Horario hora, Ano periodo, Professor professor, Disciplina disciplina, Dia dia) {
+	public Gene(Hora hora, Ano2 ano, Professor2 professor, Disciplina disciplina, Dia dia) {
 		super();
 		this.hora = hora;
-		this.periodo = periodo;
+		this.ano = ano;
 		this.professor = professor;
 		this.disciplina = disciplina;
 		this.dia = dia;
 	}
-	public Horario getHora() {
+	
+	public Hora getHora() {
 		return hora;
 	}
-	public void setHora(Horario hora) {
+
+	public void setHora(Hora hora) {
 		this.hora = hora;
 	}
-	public Ano getPeriodo() {
-		return periodo;
+
+	
+	public Ano2 getAno() {
+		return ano;
 	}
-	public void setPeriodo(Ano periodo) {
-		this.periodo = periodo;
+
+	public void setAno(Ano2 ano) {
+		this.ano = ano;
 	}
-	public Professor getProfessor() {
+
+	public Professor2 getProfessor() {
 		return professor;
 	}
-	public void setProfessor(Professor professor) {
+
+	public void setProfessor(Professor2 professor) {
 		this.professor = professor;
 	}
+
 	public Disciplina getDisciplina() {
 		return disciplina;
 	}
@@ -49,13 +56,15 @@ public class Gene {
 	public Dia getDia() {
 		return dia;
 	}
+
 	public void setDia(Dia dia) {
 		this.dia = dia;
 	}
+
 	@Override
 	public String toString() {
-		return "Gene [hora=" + hora.getHora() + ", periodo=" + periodo.getNome() + ", professor=" + professor.getNome() + ", disciplina=" + disciplina.getNome()
-				+ ", dia=" + dia.getNome() + "]";
+		return "Gene [hora=" + hora.getHora() + ", periodo=" + ano.getNome() + ", professor=" + professor.getNome() + ", disciplina=" + disciplina.getNome()
+				+ ", dia = " + dia + "]";
 	}
 	
 	

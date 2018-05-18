@@ -1,7 +1,7 @@
 package dao;
 
-import model.DiaImpossivel;
+import model.Dia;
 
-public interface DiaImpossivelDAO extends DAO<DiaImpossivel>{
+public interface DiaImpossivelDAO extends DAO<Dia>{
 
 }

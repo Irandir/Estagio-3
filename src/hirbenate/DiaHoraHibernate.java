@@ -6,12 +6,12 @@ import java.util.List;
 import org.hibernate.Session;
 
 import dao.DiaImpossivelHoraDAO;
-import model.DiaImpossivelHora;
+import model.DiaHora;
 
-public class DiaImpossivelHoraHibernate implements DiaImpossivelHoraDAO {
+public class DiaHoraHibernate implements DiaImpossivelHoraDAO {
 
 	@Override
-	public void insert(DiaImpossivelHora o) {
+	public void insert(DiaHora o) {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSession();
@@ -29,13 +29,13 @@ public class DiaImpossivelHoraHibernate implements DiaImpossivelHoraDAO {
 	}
 
 	@Override
-	public void update(DiaImpossivelHora o) {
+	public void update(DiaHora o) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delete(DiaImpossivelHora o) {
+	public void delete(DiaHora o) {
 
 		Session session = HibernateUtil.getSession();
 		try {
@@ -51,10 +51,10 @@ public class DiaImpossivelHoraHibernate implements DiaImpossivelHoraDAO {
 	}
 
 	@Override
-	public DiaImpossivelHora read(Integer id) {
+	public DiaHora read(Integer id) {
 		Session session = HibernateUtil.getSession();
 		try {
-			return (DiaImpossivelHora) session.get(DiaImpossivelHora.class.getName(), id);
+			return (DiaHora) session.get(DiaHora.class.getName(), id);
 		} catch (Exception e) {
 			session.getTransaction().rollback();
 			System.err.println("Falha ao recuperar Bairro. Erro: " + e.toString());
@@ -66,14 +66,14 @@ public class DiaImpossivelHoraHibernate implements DiaImpossivelHoraDAO {
 	}
 
 	@Override
-	public List<DiaImpossivelHora> recuperarPorNome(String nome) {
+	public List<DiaHora> recuperarPorNome(String nome) {
 		Session session = HibernateUtil.getSession();
 		try {
 			int id = Integer.parseInt(nome);
 			session.beginTransaction();
-			List<DiaImpossivelHora> listaAux = session.createQuery("from " + DiaImpossivelHora.class.getName()).list();
-			List<DiaImpossivelHora> lista = new ArrayList<>();
-			for (DiaImpossivelHora s : listaAux) {
+			List<DiaHora> listaAux = session.createQuery("from " + DiaHora.class.getName()).list();
+			List<DiaHora> lista = new ArrayList<>();
+			for (DiaHora s : listaAux) {
 				if (s.getProf_id() == id) {
 					lista.add(s);
 				}
@@ -90,11 +90,11 @@ public class DiaImpossivelHoraHibernate implements DiaImpossivelHoraDAO {
 	}
 
 	@Override
-	public List<DiaImpossivelHora> recuperarTodos() {
+	public List<DiaHora> recuperarTodos() {
 		Session session = HibernateUtil.getSession();
 		try {
 			session.beginTransaction();
-			List<DiaImpossivelHora> lista = session.createQuery("from " + DiaImpossivelHora.class.getName()).list();
+			List<DiaHora> lista = session.createQuery("from " + DiaHora.class.getName()).list();
 			session.getTransaction().commit();
 			return lista;
 		} catch (Exception e) {

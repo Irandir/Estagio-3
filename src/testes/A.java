@@ -3,13 +3,13 @@ package testes;
 import java.util.ArrayList;
 
 import hirbenate.AnoHibernate;
-import hirbenate.DiaImpossivelHibernate;
+import hirbenate.DiaHibernate;
 import hirbenate.DisciplinaHibernate;
 import hirbenate.HoraHibernate;
 import hirbenate.ProfessorHibernate;
 import model.Ano;
+import model.DiaEnum;
 import model.Dia;
-import model.DiaImpossivel;
 import model.Disciplina;
 import model.Hora;
 import model.HoraEnum;

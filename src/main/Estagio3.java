@@ -2,10 +2,10 @@ package main;
 
 import java.util.List;
 
-import hirbenate.DiaImpossivelHibernate;
+import hirbenate.DiaHibernate;
 import hirbenate.HoraHibernate;
+import model.DiaEnum;
 import model.Dia;
-import model.DiaImpossivel;
 import model.Hora;
 import model.HoraEnum;
 import telas.MenuFrame;
@@ -14,7 +14,7 @@ public class Estagio3 {
 
 	public static void main(String[] args) {
 		HoraHibernate horaHibernate = new HoraHibernate();
-		DiaImpossivelHibernate diaImpossivelHibernate = new DiaImpossivelHibernate();
+		DiaHibernate diaImpossivelHibernate = new DiaHibernate();
 		List a = horaHibernate.recuperarTodos();
 		List b = diaImpossivelHibernate.recuperarTodos();
 		if(a.size() == 0){
@@ -29,10 +29,10 @@ public class Estagio3 {
 			System.out.println("Entrou");
 		}
 		if(b.size() == 0){
-			Dia[] dE = Dia.values();
-			DiaImpossivel d[] = new DiaImpossivel[dE.length];
+			DiaEnum[] dE = DiaEnum.values();
+			Dia d[] = new Dia[dE.length];
 			for (int i = 0; i < d.length; i++) {
-				d[i] = new DiaImpossivel(dE[i]);
+				d[i] = new Dia(dE[i]);
 			}
 			for (int i = 0; i < d.length; i++) {
 				diaImpossivelHibernate.insert(d[i]);

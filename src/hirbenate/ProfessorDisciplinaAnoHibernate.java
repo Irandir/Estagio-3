@@ -7,7 +7,7 @@ import org.hibernate.Session;
 
 import dao.ProfessorDisciplinaAnoDAO;
 import model.AnoDisciplina;
-import model.DiaImpossivelHora;
+import model.DiaHora;
 import model.Professor;
 import model.ProfessorDisciplinaAno;
 

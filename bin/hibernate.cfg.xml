@@ -51,8 +51,8 @@ Contributor(s):
     <mapping class="model.Disciplina"/>
     <mapping class="model.Ano"/>
     <mapping class="model.Hora"/>
-    <mapping class="model.DiaImpossivel"/>
-    <mapping class="model.DiaImpossivelHora"/>
+    <mapping class="model.Dia"/>
+    <mapping class="model.DiaHora"/>
     <mapping class="model.Professor"/>
 	<mapping class="model.AnoDisciplina"/>
 	<mapping class="model.ProfessorDisciplinaAno"/>

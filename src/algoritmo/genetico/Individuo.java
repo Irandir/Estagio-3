@@ -1,5 +1,7 @@
 package algoritmo.genetico;
 
+import java.util.Arrays;
+
 public class Individuo {
 	private Gene[] genes;
 	private double aptidao;
@@ -22,6 +24,11 @@ public class Individuo {
 
 	public void setAptidao(double aptidao) {
 		this.aptidao = aptidao;
+	}
+
+	@Override
+	public String toString() {
+		return "Individuo [genes=" + Arrays.toString(genes) + ", aptidao=" + aptidao + "]";
 	}
 	
 }

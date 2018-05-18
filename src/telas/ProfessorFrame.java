@@ -20,9 +20,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import hirbenate.DiaImpossivelHoraHibernate;
+import hirbenate.DiaHoraHibernate;
 import hirbenate.ProfessorHibernate;
-import model.DiaImpossivelHora;
+import model.DiaHora;
 import model.Professor;
 
 public class ProfessorFrame extends JFrame {
@@ -159,8 +159,8 @@ public class ProfessorFrame extends JFrame {
 					d.removeRow(table.getSelectedRow());
 					professorHibernate.delete(o);
 					textField.setText("");
-					DiaImpossivelHoraHibernate dihh = new DiaImpossivelHoraHibernate();
-					List<DiaImpossivelHora> dih = dihh.recuperarPorNome(o.getId()+"");
+					DiaHoraHibernate dihh = new DiaHoraHibernate();
+					List<DiaHora> dih = dihh.recuperarPorNome(o.getId()+"");
 					for (int i = 0; i < dih.size(); i++) {
 						dihh.delete(dih.get(i));
 					}

@@ -8,13 +8,13 @@ import org.hibernate.Transaction;
 
 import dao.DiaImpossivelDAO;
 import model.AnoDisciplina;
-import model.DiaImpossivel;
+import model.Dia;
 import model.Hora;
 
-public class DiaImpossivelHibernate implements DiaImpossivelDAO{
+public class DiaHibernate implements DiaImpossivelDAO{
 
 	@Override
-	public void insert(DiaImpossivel o) {
+	public void insert(Dia o) {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSession();
         try {
@@ -31,22 +31,22 @@ public class DiaImpossivelHibernate implements DiaImpossivelDAO{
 	}
 
 	@Override
-	public void update(DiaImpossivel o) {
+	public void update(Dia o) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delete(DiaImpossivel o) {
+	public void delete(Dia o) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public DiaImpossivel read(Integer id) {
+	public Dia read(Integer id) {
 		Session session = HibernateUtil.getSession();
 		try {
-			return (DiaImpossivel) session.get(DiaImpossivel.class.getName(), id);
+			return (Dia) session.get(Dia.class.getName(), id);
 		} catch (Exception e) {
 			session.getTransaction().rollback();
 			System.err.println("Falha ao recuperar Bairro. Erro: " + e.toString());
@@ -58,13 +58,13 @@ public class DiaImpossivelHibernate implements DiaImpossivelDAO{
 	}
 
 	@Override
-	public List<DiaImpossivel> recuperarPorNome(String nome) {
+	public List<Dia> recuperarPorNome(String nome) {
 		Session session = HibernateUtil.getSession();
 		try {
 			session.beginTransaction();
-			List<DiaImpossivel> listaAux = session.createQuery("from " + DiaImpossivel.class.getName()).list();
-			List<DiaImpossivel> lista = new ArrayList<>();
-			for (DiaImpossivel s : listaAux) {
+			List<Dia> listaAux = session.createQuery("from " + Dia.class.getName()).list();
+			List<Dia> lista = new ArrayList<>();
+			for (Dia s : listaAux) {
 				if (s.getDia().toString().equals(nome)) {
 					lista.add(s);
 				}
@@ -81,11 +81,11 @@ public class DiaImpossivelHibernate implements DiaImpossivelDAO{
 	}
 
 	@Override
-	public List<DiaImpossivel> recuperarTodos() {
+	public List<Dia> recuperarTodos() {
 		Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            List<DiaImpossivel>lista = session.createQuery("from " + DiaImpossivel.class.getName()).list();
+            List<Dia>lista = session.createQuery("from " + Dia.class.getName()).list();
             session.getTransaction().commit();
             return lista;
         } catch (Exception e) {

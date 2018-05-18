@@ -20,12 +20,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import hirbenate.AnoHibernate;
-import hirbenate.DiaImpossivelHibernate;
-import hirbenate.DiaImpossivelHoraHibernate;
+import hirbenate.DiaHibernate;
+import hirbenate.DiaHoraHibernate;
 import hirbenate.HoraHibernate;
 import model.Ano;
-import model.DiaImpossivel;
-import model.DiaImpossivelHora;
+import model.Dia;
+import model.DiaHora;
 import model.Hora;
 import model.Professor;
 
@@ -125,12 +125,12 @@ public class IndisponivelFrame extends JFrame {
 				if (s != "" || s != null) {
 					d.setValueAt("", j, i + 1);
 					HoraHibernate horaHibernate = new HoraHibernate();
-					DiaImpossivelHibernate diaImpossivelHibernate = new DiaImpossivelHibernate();
-					DiaImpossivelHoraHibernate dihh = new DiaImpossivelHoraHibernate();
+					DiaHibernate diaImpossivelHibernate = new DiaHibernate();
+					DiaHoraHibernate dihh = new DiaHoraHibernate();
 					List<Hora> hora2 = horaHibernate.recuperarPorNome(hora);
-					List<DiaImpossivel> dia2 = diaImpossivelHibernate.recuperarPorNome(dia);
-					List<DiaImpossivelHora> dih = dihh.recuperarPorNome(professor.getId() + "");
-					DiaImpossivelHora diaImpossivelHora = new DiaImpossivelHora();
+					List<Dia> dia2 = diaImpossivelHibernate.recuperarPorNome(dia);
+					List<DiaHora> dih = dihh.recuperarPorNome(professor.getId() + "");
+					DiaHora diaImpossivelHora = new DiaHora();
 					for (int k = 0; k < dih.size(); k++) {
 						if (dih.get(k).getDia_id() == dia2.get(0).getId()
 								&& dih.get(k).getHora_id() == hora2.get(0).getId()) {
@@ -159,12 +159,12 @@ public class IndisponivelFrame extends JFrame {
 				if (s == "" || s == null) {
 					d.setValueAt("indisponível", j, i + 1);
 					HoraHibernate horaHibernate = new HoraHibernate();
-					DiaImpossivelHibernate diaImpossivelHibernate = new DiaImpossivelHibernate();
+					DiaHibernate diaImpossivelHibernate = new DiaHibernate();
 
 					List<Hora> hora = horaHibernate.recuperarPorNome(h);
-					List<DiaImpossivel> diaImpossivel = diaImpossivelHibernate.recuperarPorNome(d2);
-					DiaImpossivelHoraHibernate dihh = new DiaImpossivelHoraHibernate();
-					DiaImpossivelHora dih = new DiaImpossivelHora(professor.getId(), diaImpossivel.get(0).getId(),
+					List<Dia> diaImpossivel = diaImpossivelHibernate.recuperarPorNome(d2);
+					DiaHoraHibernate dihh = new DiaHoraHibernate();
+					DiaHora dih = new DiaHora(professor.getId(), diaImpossivel.get(0).getId(),
 							hora.get(0).getId());
 					dihh.insert(dih);
 				}
@@ -218,11 +218,11 @@ public class IndisponivelFrame extends JFrame {
 
 		DefaultTableModel d = (DefaultTableModel) table.getModel();
 		// d.setRowCount(0);
-		List<DiaImpossivelHora> dIH = new DiaImpossivelHoraHibernate().recuperarPorNome(professor.getId() + "");
+		List<DiaHora> dIH = new DiaHoraHibernate().recuperarPorNome(professor.getId() + "");
 		HoraHibernate horaHibernate = new HoraHibernate();
-		DiaImpossivelHibernate diaImpossivelHibernate = new DiaImpossivelHibernate();
+		DiaHibernate diaImpossivelHibernate = new DiaHibernate();
 		Hora hora;
-		DiaImpossivel diaImpossivel;
+		Dia diaImpossivel;
 		for (int i = 0; i < dIH.size(); i++) {
 			hora = horaHibernate.read(dIH.get(i).getHora_id());
 			diaImpossivel = diaImpossivelHibernate.read(dIH.get(i).getDiaImpossivel_id());

@@ -1,7 +1,7 @@
 package dao;
 
-import model.DiaImpossivelHora;
+import model.DiaHora;
 
-public interface DiaImpossivelHoraDAO extends DAO<DiaImpossivelHora>{
+public interface DiaImpossivelHoraDAO extends DAO<DiaHora>{
 
 }

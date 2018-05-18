@@ -28,6 +28,10 @@ public class Professor {
 	}
 	public Integer getId() {
 		return id;
+	}
+	@Override
+	public String toString() {
+		return "Professor [id=" + id + ", nome=" + nome + "]";
 	}	
 	
 }

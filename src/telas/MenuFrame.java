@@ -1,28 +1,37 @@
 package telas;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.FlowLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.BoxLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.GridLayout;
-import java.awt.CardLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import net.miginfocom.swing.MigLayout;
-import testes.GerarHorarioFrame2;
+
+import algoritmo.genetico.AG;
+import algoritmo.genetico.FormatDados;
+import algoritmo.genetico.Individuo;
+import hirbenate.AnoDisciplinaHibernate;
+import hirbenate.AnoHibernate;
+import hirbenate.DiaHibernate;
+import hirbenate.DiaHoraHibernate;
+import hirbenate.DisciplinaHibernate;
+import hirbenate.HoraHibernate;
+import hirbenate.ProfessorDisciplinaAnoHibernate;
+import hirbenate.ProfessorHibernate;
+import model.Ano;
+import model.AnoDisciplina;
+import model.Dia;
+import model.DiaHora;
+import model.Disciplina;
+import model.Hora;
+import model.Professor;
+import model.ProfessorDisciplinaAno;
 
 public class MenuFrame extends JFrame {
 
@@ -78,8 +87,37 @@ public class MenuFrame extends JFrame {
 		JButton btnGerarGrade = new JButton("Gerar Grade");
 		btnGerarGrade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new GerarHorarioFrame().setVisible(true);
-				dispose();
+				List<Hora>horas = new HoraHibernate().recuperarTodos();
+				List<Dia>dias = new DiaHibernate().recuperarTodos();
+				List<AnoDisciplina> ad = new AnoDisciplinaHibernate().recuperarTodos();
+				List<Disciplina> disci = new DisciplinaHibernate().recuperarTodos();
+				List<Ano> ano = new AnoHibernate().recuperarTodos();
+				List<DiaHora> dih = new DiaHoraHibernate().recuperarTodos();
+				List<ProfessorDisciplinaAno> pda = new ProfessorDisciplinaAnoHibernate().recuperarTodos();
+				List<Professor> professor = new ProfessorHibernate().recuperarTodos();
+				//new GerarHorarioFrame().setVisible(true);
+				//dispose();
+				FormatDados fd = new FormatDados(horas, dias, disci, ano, professor, ad, dih, pda);
+				AG ag = new AG(fd.getAno2(),fd.getProfessor2(), horas, dias, disci);
+				
+				Individuo[] populacao = ag.gerandoPopulacao(50);
+				int indice[] = new int[populacao.length];
+				double fitness[] = new double[populacao.length];
+				for (int geracao = 0; geracao < 100; geracao++) {
+					for (int i = 0; i < populacao.length; i++) {
+						fitness[i] = ag.fitness(populacao[i]);
+					}
+					System.out.println("________fitness________");
+					for (int i = 0; i < populacao.length; i++) {
+						//ag.mostraGene(populacao[i]);
+						System.out.println(ag.fitness(populacao[i]));
+					}
+					indice = ag.selecaoRoleta(fitness);
+					populacao = ag.crossoverUniforme(populacao, indice, 0.7);
+					populacao = ag.multacao(populacao, 0.1);
+					
+				}
+				
 			}
 		});
 		btnGerarGrade.setFont(new Font("Times New Roman", Font.BOLD, 11));

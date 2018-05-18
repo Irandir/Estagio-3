@@ -66,4 +66,9 @@ public class Ano {
 		this.id = id;
 	}
 
+	@Override
+	public String toString() {
+		return "Ano [id=" + id + ", nome=" + nome + ", turno=" + turno + "]";
+	}
+	
 }

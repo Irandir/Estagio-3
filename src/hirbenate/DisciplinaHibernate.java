@@ -6,7 +6,7 @@ import java.util.List;
 import org.hibernate.Session;
 
 import dao.DisciplinaDAO;
-import model.DiaImpossivelHora;
+import model.DiaHora;
 import model.Disciplina;
 import model.Hora;
 

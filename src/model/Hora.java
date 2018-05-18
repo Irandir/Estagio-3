@@ -18,6 +18,9 @@ public class Hora {
 	public Hora(HoraEnum hora) {
 		this.hora = hora.toString();
 	}
+	public Hora(String hora) {
+		this.hora = hora;
+	}
 	public String getHora() {
 		return hora;
 	}
@@ -31,6 +34,11 @@ public class Hora {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "Hora [id=" + id + ", hora=" + hora + "]";
 	}
 	
 }

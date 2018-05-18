@@ -59,6 +59,10 @@ public class AnoDisciplina {
 		}
 		return null;
 	}
+	@Override
+	public String toString() {
+		return "AnoDisciplina [id=" + id + ", ano_id=" + ano_id + ", disciplina_id=" + disciplina_id + "]";
+	}
 	
 	
 }

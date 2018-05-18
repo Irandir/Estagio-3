@@ -6,8 +6,8 @@ import java.util.List;
 import org.hibernate.Session;
 
 import dao.HoraDAO;
-import model.DiaImpossivel;
-import model.DiaImpossivelHora;
+import model.Dia;
+import model.DiaHora;
 import model.Hora;
 
 public class HoraHibernate implements HoraDAO{
