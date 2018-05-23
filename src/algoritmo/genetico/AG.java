@@ -240,6 +240,19 @@ public class AG {
 		return indice;
 	}
 	
+	public Individuo melhorIndividuo(Individuo[] populacao,double[] fitness){
+		double maior = fitness[0];
+		int indice = 0;
+		for (int i = 0; i < fitness.length; i++) {
+			if (fitness[i]>maior) {
+				maior = fitness[i];
+				indice = i;
+			}
+		}
+		
+		return populacao[indice];
+	}
+	
 	public Individuo[] crossoverUniforme(Individuo[] populacao, int[] indice, double prob) {
 		Individuo[] novaPopulacao = new Individuo[populacao.length];
 		double aleatorio = 0;

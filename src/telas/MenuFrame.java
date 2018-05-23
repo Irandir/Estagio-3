@@ -100,24 +100,34 @@ public class MenuFrame extends JFrame {
 				FormatDados fd = new FormatDados(horas, dias, disci, ano, professor, ad, dih, pda);
 				AG ag = new AG(fd.getAno2(),fd.getProfessor2(), horas, dias, disci);
 				
-				Individuo[] populacao = ag.gerandoPopulacao(50);
+				Individuo[] populacao = ag.gerandoPopulacao(100);
 				int indice[] = new int[populacao.length];
 				double fitness[] = new double[populacao.length];
-				for (int geracao = 0; geracao < 100; geracao++) {
+				System.out.println("________fitness________");
+				for (int i = 0; i < populacao.length; i++) {
+					//ag.mostraGene(populacao[i]);
+					System.out.println(ag.fitness(populacao[i]));
+				}
+				for (int geracao = 0; geracao < 300; geracao++) {
 					for (int i = 0; i < populacao.length; i++) {
 						fitness[i] = ag.fitness(populacao[i]);
 					}
-					System.out.println("________fitness________");
-					for (int i = 0; i < populacao.length; i++) {
-						//ag.mostraGene(populacao[i]);
-						System.out.println(ag.fitness(populacao[i]));
-					}
+					
 					indice = ag.selecaoRoleta(fitness);
 					populacao = ag.crossoverUniforme(populacao, indice, 0.7);
 					populacao = ag.multacao(populacao, 0.1);
 					
 				}
-				
+				System.out.println("________fitness________");
+				for (int i = 0; i < populacao.length; i++) {
+					//ag.mostraGene(populacao[i]);
+					System.out.println(ag.fitness(populacao[i]));
+				}
+				Individuo individuo = ag.melhorIndividuo(populacao, fitness);
+				ag.mostraGene(individuo);
+				GradeDeHorarioFrame gdhf = new GradeDeHorarioFrame(ano, individuo);
+				gdhf.setVisible(true);
+				dispose();
 			}
 		});
 		btnGerarGrade.setFont(new Font("Times New Roman", Font.BOLD, 11));
