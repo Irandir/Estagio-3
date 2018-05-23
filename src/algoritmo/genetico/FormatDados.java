@@ -54,7 +54,7 @@ public class FormatDados {
 		for (int i = 0; i < ano.size(); i++) {
 			aux = new ArrayList<>();
 			for (int j = 0; j < ad.size(); j++) {
-				if (ano.get(i).getId() == ad.get(j).getAno_id()) {
+				if ((int)(ano.get(i).getId()) == (int)(ad.get(j).getAno_id())) {
 					for (int j2 = 0; j2 < disci.size(); j2++) {
 						a = disci.get(j2).getId();
 						b = ad.get(j).getDisciplina_id();
@@ -92,7 +92,7 @@ public class FormatDados {
 				}
 			}
 			for (int j = 0; j < pda.size(); j++) {
-				if (professor.get(i).getId() == pda.get(j).getProf_id()) {
+				if ((int)professor.get(i).getId() == (int)pda.get(j).getProf_id()) {
 					for (int j2 = 0; j2 < disci.size(); j2++) {
 						if ((int)disci.get(j2).getId() == (int)pda.get(j).getDisc_id()) {
 							auxDisc.add(disci.get(j2));

@@ -220,8 +220,12 @@ public class AnoAddDisciplinaFrame extends JFrame {
 		List<AnoDisciplina> ano_disciplinas = new AnoDisciplinaHibernate().recuperarPorNome(ano.getId() + "");
 		Disciplina disciplina;
 		d.setRowCount(0);
+		int v = 0;
+		int v2 = 0;
 		for (int i = 0; i < ano_disciplinas.size(); i++) {
-			if (ano.getId() == ano_disciplinas.get(i).getAno_id()) {
+			v = ano.getId();
+			v2 = ano_disciplinas.get(i).getAno_id();
+			if (v == v2) {
 				disciplina = disciplinaHibernate.read(ano_disciplinas.get(i).getDisciplina_id());
 				String[] linha = { ano_disciplinas.get(i).getId() + "", disciplina.getNome(),
 						disciplina.getNumeroDeAulasSemanais() + "" };
