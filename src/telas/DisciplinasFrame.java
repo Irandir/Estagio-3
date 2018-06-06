@@ -28,6 +28,7 @@ import model.Disciplina;
 import model.ProfessorDisciplinaAno;
 
 import javax.swing.ListSelectionModel;
+import javax.swing.ImageIcon;
 
 public class DisciplinasFrame extends JFrame {
 
@@ -182,6 +183,7 @@ public class DisciplinasFrame extends JFrame {
 		contentPane.add(btnAlterar);
 
 		btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.setIcon(new ImageIcon(DisciplinasFrame.class.getResource("/imagens/check_ok_accept_apply_1582.png")));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = nomeTextField.getText().trim();

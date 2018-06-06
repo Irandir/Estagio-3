@@ -113,7 +113,7 @@ public class AG {
 				}
 			}
 		}
-		int contTodasDis = 0;
+		/*int contTodasDis = 0;
 		for (int i = 0; i < ano2.size(); i++) {
 			contTodasDis += ano2.get(i).getDisc().size();
 		}
@@ -121,10 +121,10 @@ public class AG {
 			JOptionPane.showMessageDialog(null, "Professores são muitos não existe disciplinas suficientes");
 			JOptionPane.showMessageDialog(null, "Adicione mais disciplinas ou delete professores");
 			return 0;
-		}
+		}*/
 
 		if (contProf < professor2.size()) {
-			penalidades += 3;
+			penalidades += 20;
 			//System.out.println("falta professor");
 		}
 		List<Dia> dias;
@@ -202,7 +202,7 @@ public class AG {
 					}
 					if (contErro == 1000) {
 						JOptionPane.showMessageDialog(null, "Numero muito grande de disciplina na grade ");
-						JOptionPane.showMessageDialog(null, "Delete disciplina ");
+						JOptionPane.showMessageDialog(null, "Delete algunha(s) disciplina(s) do ano "+ano2.get(i).getNome());
 						return null;
 					}
 					contErro++;
@@ -249,7 +249,10 @@ public class AG {
 				indice = i;
 			}
 		}
-		
+		if(maior< 1000){
+			JOptionPane.showMessageDialog(null, "Existe muita especificações diminua a professores ou a indisponibilidade");
+			
+		}
 		return populacao[indice];
 	}
 	

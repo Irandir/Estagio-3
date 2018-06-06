@@ -2,6 +2,7 @@ package main;
 
 import java.util.List;
 
+import hirbenate.CreateDateBase;
 import hirbenate.DiaHibernate;
 import hirbenate.HoraHibernate;
 import model.DiaEnum;
@@ -13,6 +14,8 @@ import telas.MenuFrame;
 public class Estagio3 {
 
 	public static void main(String[] args) {
+		CreateDateBase createDateBase = new CreateDateBase();
+		createDateBase.create();//abc
 		HoraHibernate horaHibernate = new HoraHibernate();
 		DiaHibernate diaImpossivelHibernate = new DiaHibernate();
 		List a = horaHibernate.recuperarTodos();
@@ -40,6 +43,7 @@ public class Estagio3 {
 			System.out.println("Entrou 2");
 		}
 		MenuFrame frame = new MenuFrame();
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);	
 	}
 }

@@ -117,7 +117,9 @@ public class GradeDeHorarioFrame extends JFrame {
 		JButton btnMenu = new JButton("Menu");
 		btnMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new MenuFrame().setVisible(true);
+				MenuFrame menu = new MenuFrame();
+				menu.setLocationRelativeTo(null);
+				menu.setVisible(true);
 				dispose();
 			}
 		});
