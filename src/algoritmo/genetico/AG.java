@@ -249,10 +249,14 @@ public class AG {
 				indice = i;
 			}
 		}
+<<<<<<< HEAD
 		if(maior< 1000){
 			JOptionPane.showMessageDialog(null, "Existe muita especificações diminua a professores ou a indisponibilidade");
 			
 		}
+=======
+		
+>>>>>>> 95f90a0d3dd5e869b5feb9eb90e820606e49a39c
 		return populacao[indice];
 	}
 	

@@ -105,11 +105,24 @@ public class MenuFrame extends JFrame {
 				//dispose();
 				FormatDados fd = new FormatDados(horas, dias, disci, ano, professor, ad, dih, pda);
 				AG ag = new AG(fd.getAno2(),fd.getProfessor2(), horas, dias, disci);
+<<<<<<< HEAD
 				try{
 					Individuo[] populacao = ag.gerandoPopulacao(100);
 					int indice[] = new int[populacao.length];
 					double fitness[] = new double[populacao.length];
 					System.out.println("________fitness________");
+=======
+				
+				Individuo[] populacao = ag.gerandoPopulacao(100);
+				int indice[] = new int[populacao.length];
+				double fitness[] = new double[populacao.length];
+				System.out.println("________fitness________");
+				for (int i = 0; i < populacao.length; i++) {
+					//ag.mostraGene(populacao[i]);
+					System.out.println(ag.fitness(populacao[i]));
+				}
+				for (int geracao = 0; geracao < 300; geracao++) {
+>>>>>>> 95f90a0d3dd5e869b5feb9eb90e820606e49a39c
 					for (int i = 0; i < populacao.length; i++) {
 						//ag.mostraGene(populacao[i]);
 						System.out.println(ag.fitness(populacao[i]));
@@ -124,6 +137,7 @@ public class MenuFrame extends JFrame {
 						populacao = ag.multacao(populacao, 0.1);
 						
 					}
+<<<<<<< HEAD
 					System.out.println("________fitness________");
 					for (int i = 0; i < populacao.length; i++) {
 						//ag.mostraGene(populacao[i]);
@@ -136,8 +150,24 @@ public class MenuFrame extends JFrame {
 					dispose();
 				}catch (NullPointerException e3) {
 					// TODO: handle exception
+=======
+					
+					indice = ag.selecaoRoleta(fitness);
+					populacao = ag.crossoverUniforme(populacao, indice, 0.7);
+					populacao = ag.multacao(populacao, 0.1);
+					
+>>>>>>> 95f90a0d3dd5e869b5feb9eb90e820606e49a39c
 				}
-				
+				System.out.println("________fitness________");
+				for (int i = 0; i < populacao.length; i++) {
+					//ag.mostraGene(populacao[i]);
+					System.out.println(ag.fitness(populacao[i]));
+				}
+				Individuo individuo = ag.melhorIndividuo(populacao, fitness);
+				ag.mostraGene(individuo);
+				GradeDeHorarioFrame gdhf = new GradeDeHorarioFrame(ano, individuo);
+				gdhf.setVisible(true);
+				dispose();
 			}
 		});
 		btnGerarGrade.setFont(new Font("Times New Roman", Font.BOLD, 11));
