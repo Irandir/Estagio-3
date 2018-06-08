@@ -21,6 +21,7 @@ import algoritmo.genetico.AG;
 import algoritmo.genetico.Individuo;
 import model.Ano;
 import model.Hora;
+import javax.swing.JComboBox;
 
 public class GradeDeHorarioFrame extends JFrame {
 
@@ -52,7 +53,7 @@ public class GradeDeHorarioFrame extends JFrame {
 		tabbedPane.setToolTipText("1\u00B0\r\n2\u00B0");
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 
-		tabbedPane.setBounds(10, 30, 505, 307);
+		tabbedPane.setBounds(10, 64, 505, 273);
 		contentPane.add(tabbedPane);
 		
 		JScrollPane scrollPane_1[] = new JScrollPane[ano.size()];
@@ -117,20 +118,38 @@ public class GradeDeHorarioFrame extends JFrame {
 		JButton btnMenu = new JButton("Menu");
 		btnMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
 				MenuFrame menu = new MenuFrame();
 				menu.setLocationRelativeTo(null);
 				menu.setVisible(true);
-=======
-				new MenuFrame().setVisible(true);
->>>>>>> 95f90a0d3dd5e869b5feb9eb90e820606e49a39c
 				dispose();
 			}
 		});
 		btnMenu.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		btnMenu.setBounds(10, 348, 89, 23);
 		contentPane.add(btnMenu);
+		
+		JButton btnExportaExecel = new JButton("Exporta Execel");
+		btnExportaExecel.setFont(new Font("Times New Roman", Font.BOLD, 11));
+		btnExportaExecel.setBounds(396, 348, 119, 23);
+		contentPane.add(btnExportaExecel);
+		
+		JButton btnConflitos = new JButton("Conflitos");
+		btnConflitos.setFont(new Font("Times New Roman", Font.BOLD, 11));
+		btnConflitos.setBounds(10, 35, 89, 23);
+		contentPane.add(btnConflitos);
+		
+		JButton btnNewButton = new JButton("Busca");
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 11));
+		btnNewButton.setBounds(426, 35, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblBusca = new JLabel("Busca Professores:");
+		lblBusca.setFont(new Font("Times New Roman", Font.BOLD, 11));
+		lblBusca.setBounds(169, 39, 129, 14);
+		contentPane.add(lblBusca);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(270, 36, 146, 20);
+		contentPane.add(comboBox);
 	}
-	
-	
 }
