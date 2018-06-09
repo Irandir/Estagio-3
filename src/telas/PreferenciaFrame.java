@@ -40,6 +40,7 @@ public class PreferenciaFrame extends JFrame {
 	private List<Ano> anos = new AnoHibernate().recuperarTodos();
 	private ProfessorDisciplinaAnoHibernate professorDisciplinaAnoHibernate = new ProfessorDisciplinaAnoHibernate();
 	public PreferenciaFrame(Professor professor) {
+		setResizable(false);
 		setTitle("Grade De Hor\u00E1rios");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 541, 422);
@@ -220,7 +221,7 @@ public class PreferenciaFrame extends JFrame {
 
 			for (int i = 0; i < discA.size(); i++) {
 				for (int j = 0; j < anoDis.size(); j++) {
-					if (discA.get(i).getId() == anoDis.get(j).getDisciplina_id()) {
+					if ((int)discA.get(i).getId() == (int)anoDis.get(j).getDisciplina_id()) {
 						r.add(discA.get(i));
 					}
 				}

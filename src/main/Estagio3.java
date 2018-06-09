@@ -15,7 +15,7 @@ public class Estagio3 {
 
 	public static void main(String[] args) {
 		CreateDateBase createDateBase = new CreateDateBase();
-		createDateBase.create();//abc
+		createDateBase.create();//
 		HoraHibernate horaHibernate = new HoraHibernate();
 		DiaHibernate diaImpossivelHibernate = new DiaHibernate();
 		List a = horaHibernate.recuperarTodos();

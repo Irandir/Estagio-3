@@ -38,11 +38,11 @@ public class Teste2 extends JFrame {
 	public Teste2() {
 		
 		JFileChooser fc = new JFileChooser();
-		//JTextArea log = new JTextArea();
-		int h = fc.showSaveDialog(Teste2.this);
+		JTextArea log = new JTextArea();
+		fc.showSaveDialog(Teste2.this);
 		int i = JFileChooser.APPROVE_OPTION;
 		File file = fc.getSelectedFile();
-		
+		System.out.println(file.getAbsolutePath());
 		
 		/*int returnVal = fc.showSaveDialog(Teste2.this);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {

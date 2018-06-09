@@ -18,9 +18,9 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 
 
-public class CDIO {
+public class ExportExcel {
 
-	public void expExcel(String nomeArquivo) {
+	public void expExcel(String caminho,List<String> lista) {
 
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet firstSheet = workbook.createSheet("Aba1");
@@ -28,7 +28,7 @@ public class CDIO {
 		FileOutputStream fos = null;
 
 		try {
-			fos = new FileOutputStream(new File(nomeArquivo));
+			fos = new FileOutputStream(new File(caminho));
 
 			// Este trecho obtem uma lista de objetos do tipo CD
 
@@ -38,10 +38,6 @@ public class CDIO {
 
 			// dos objetos.
 
-			List<String> lista = new ArrayList<>();
-			lista.add("t");
-			lista.add("t2");
-			lista.add("t3");
 			int i = 0;
 
 			for (String cd : lista) {

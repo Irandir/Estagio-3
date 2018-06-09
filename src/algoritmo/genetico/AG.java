@@ -95,7 +95,7 @@ public class AG {
 				if (gene.getDia().toString().equals(gene2.getDia().toString())
 						&& gene.getHora().getHora().equals(gene2.getHora().getHora())
 						&& gene.getProfessor().getNome().equals(gene2.getProfessor().getNome())
-						&& gene.getProfessor().getNome().equals(gene2.getProfessor().getNome())
+						&& !gene.getAno().getNome().equals(gene2.getAno().getNome())
 						&& !gene.getProfessor().getNome().equals("")) {
 					penalidades += 50;
 				//	System.out.println("i" + i + " j" + j);

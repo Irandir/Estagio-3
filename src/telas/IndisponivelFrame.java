@@ -40,6 +40,7 @@ public class IndisponivelFrame extends JFrame {
 	HoraHibernate horaHibernate = new HoraHibernate();
 
 	public IndisponivelFrame(Professor professor) {
+		setResizable(false);
 		setTitle("Grade De Hor\u00E1rios");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 541, 422);

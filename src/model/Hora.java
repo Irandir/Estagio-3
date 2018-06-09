@@ -36,9 +36,9 @@ public class Hora {
 		this.id = id;
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "Hora [id=" + id + ", hora=" + hora + "]";
-	}
+	}*/
 	
 }

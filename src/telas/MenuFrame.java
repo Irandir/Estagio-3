@@ -101,8 +101,7 @@ public class MenuFrame extends JFrame {
 				List<DiaHora> dih = new DiaHoraHibernate().recuperarTodos();
 				List<ProfessorDisciplinaAno> pda = new ProfessorDisciplinaAnoHibernate().recuperarTodos();
 				List<Professor> professor = new ProfessorHibernate().recuperarTodos();
-				// new GerarHorarioFrame().setVisible(true);
-				// dispose();
+				
 				
 				try {
 					FormatDados fd = new FormatDados(horas, dias, disci, ano, professor, ad, dih, pda);
@@ -134,7 +133,7 @@ public class MenuFrame extends JFrame {
 					}
 					Individuo individuo = ag.melhorIndividuo(populacao, fitness);
 					ag.mostraGene(individuo);
-					GradeDeHorarioFrame gdhf = new GradeDeHorarioFrame(ano, individuo);
+					GradeDeHorarioFrame gdhf = new GradeDeHorarioFrame(fd.getProfessor2(),ano, individuo);
 					gdhf.setVisible(true);
 					dispose();
 
