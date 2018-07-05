@@ -18,7 +18,7 @@ public class Estagio3 {
 		createDateBase.create();//
 		HoraHibernate horaHibernate = new HoraHibernate();
 		DiaHibernate diaImpossivelHibernate = new DiaHibernate();
-		List a = horaHibernate.recuperarTodos();
+		List a = horaHibernate.recuperarTodos(); 
 		List b = diaImpossivelHibernate.recuperarTodos();
 		if(a.size() == 0){
 			HoraEnum[] hE = HoraEnum.values();

@@ -136,13 +136,14 @@ public class DisciplinasFrame extends JFrame {
 				List<ProfessorDisciplinaAno> pda = new ArrayList<>();
 				List<AnoDisciplina> adAux = anoDisciplinaHibernate.recuperarTodos();
 				List<AnoDisciplina> ad  = new ArrayList<>();
+			
 				for (int i = 0; i < pdaAux.size(); i++) {
-					if (pdaAux.get(i).getDisc_id() == o.getId()) {
+					if ((int)(pdaAux.get(i).getDisc_id()) == (int)(o.getId())) {
 						pda.add(pdaAux.get(i));
 					}
 				}
 				for (int i = 0; i < adAux.size(); i++) {
-					if (adAux.get(i).getDisciplina_id() == o.getId()) {
+					if ((int)(adAux.get(i).getDisciplina_id()) ==(int)(o.getId())) {
 						ad.add(adAux.get(i));
 					}
 				}

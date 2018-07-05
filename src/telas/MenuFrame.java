@@ -67,7 +67,7 @@ public class MenuFrame extends JFrame {
 		contentPane.add(panel_1);
 
 		JButton btnNewButton = new JButton("Professor");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Irandir\\Desktop\\icons\\user_accounts_15362.png"));
+		//btnNewButton.setIcon(new ImageIcon("C:\\Users\\Irandir\\Desktop\\icons\\user_accounts_15362.png"));
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		btnNewButton.setBounds(179, 164, 121, 40);
 		btnNewButton.addActionListener(new ActionListener() {
@@ -103,6 +103,7 @@ public class MenuFrame extends JFrame {
 				List<Professor> professor = new ProfessorHibernate().recuperarTodos();
 				
 				
+				
 				try {
 					FormatDados fd = new FormatDados(horas, dias, disci, ano, professor, ad, dih, pda);
 					AG ag = new AG(fd.getAno2(), fd.getProfessor2(), horas, dias, disci);
@@ -115,7 +116,7 @@ public class MenuFrame extends JFrame {
 						// ag.mostraGene(populacao[i]);
 						System.out.println(ag.fitness(populacao[i]));
 					}
-					for (int h = 0; h < 20; h++) {
+					for (int h = 0; h < 2000; h++) {
 						for (int i = 0; i < populacao.length; i++) {
 							fitness[i] = ag.fitness(populacao[i]);
 						}
@@ -139,8 +140,9 @@ public class MenuFrame extends JFrame {
 
 					// ==
 				} catch (NullPointerException e3) {
-					JOptionPane.showMessageDialog(null, "ERRO");
-
+					JOptionPane.showMessageDialog(null, "Erro");
+				} catch (IllegalArgumentException e2) {
+					JOptionPane.showMessageDialog(null, "Um dos anos esta sem disciplinas");
 				}
 			}
 		});

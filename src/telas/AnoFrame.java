@@ -153,8 +153,12 @@ public class AnoFrame extends JFrame {
 					List<ProfessorDisciplinaAno> pdaAux = professorDisciplinaAnoHibernate.recuperarTodos();
 					List<ProfessorDisciplinaAno> pda = new ArrayList<>();
 					List<AnoDisciplina> ad = anoDisciplinaHibernate.recuperarPorNome(o.getId()+"");
+					int a = 0;
+					int b = 0;
 					for (int i = 0; i < pdaAux.size(); i++) {
-						if (pdaAux.get(i).getAno_id() == o.getId()) {
+						a = pdaAux.get(i).getAno_id();
+						b = o.getId();
+						if (a == b) {
 							pda.add(pdaAux.get(i));
 						}
 					}
